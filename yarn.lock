@@ -3212,8 +3212,8 @@ __metadata:
   linkType: hard
 
 "@metamask/snaps-utils@npm:^8.1.1, @metamask/snaps-utils@npm:^8.5.0":
-  version: 8.5.1
-  resolution: "@metamask/snaps-utils@npm:8.5.1"
+  version: 8.5.2
+  resolution: "@metamask/snaps-utils@npm:8.5.2"
   dependencies:
     "@babel/core": ^7.23.2
     "@babel/types": ^7.23.0
@@ -3238,7 +3238,7 @@ __metadata:
     semver: ^7.5.4
     ses: ^1.1.0
     validate-npm-package-name: ^5.0.0
-  checksum: 17e3fb3f252757a57b1cfcf44badd0051c9fed4ff37b1217c95b6867b3addaf7e62159ee1d6c9fc4780812af681b9498e36ecc0ccbee188f13b90306e838247d
+  checksum: 1d94cb171950f8f076755bec800abf458fc1cd0d9a7316dbbf9bf962a1d1109da12186f81a6fa5f985f2f772c950e07ee38cdf7288b9a67c83b995d1b83771f7
   languageName: node
   linkType: hard
 
