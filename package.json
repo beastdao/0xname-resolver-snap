@@ -11,19 +11,29 @@
     "type": "git",
     "url": "git+https://github.com/MetaMask/template-snap-monorepo.git"
   },
-  "license": "(MIT-0 OR Apache-2.0)",
+  "license": "(MIT-0)",
   "author": "",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach --parallel --topological --verbose run build",
+    "allow-scripts": "yarn workspace root allow-scripts",
+    "build": "mm-snap build",
+    "build:clean": "yarn clean && yarn build",
+    "clean": "rimraf dist",
     "lint": "yarn lint:eslint && yarn lint:misc --check",
-    "lint:eslint": "eslint . --cache --ext js,jsx,ts,tsx",
+    "lint:eslint": "eslint . --cache --ext js,ts",
     "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
-    "lint:misc": "prettier '**/*.json' '**/*.md' '!**/CHANGELOG.md' '**/*.yml' --ignore-path .gitignore",
-    "start": "yarn workspaces foreach --parallel --interlaced --verbose run start",
-    "test": "yarn workspace snap run test"
+    "lint:misc": "prettier '**/*.json' '**/*.md' '!CHANGELOG.md' --ignore-path .gitignore",
+    "prepublishOnly": "npx mm-snap manifest",
+    "serve": "mm-snap serve",
+    "start": "mm-snap watch",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@metamask/snaps-sdk": "6.10.0",
+    "ethers": "6.13.2",
+    "viem": "2.21.15"
   },
   "devDependencies": {
     "@lavamoat/allow-scripts": "^3.0.0",
@@ -32,6 +42,7 @@
     "@metamask/eslint-config-jest": "^12.1.0",
     "@metamask/eslint-config-nodejs": "^12.1.0",
     "@metamask/eslint-config-typescript": "^12.1.0",
+    "@metamask/snaps-cli": "6.6.0",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "eslint": "^8.45.0",
@@ -56,9 +67,5 @@
       "@lavamoat/preinstall-always-fail": false,
       "sharp": true
     }
-  },
-  "dependencies": {
-    "ethers": "6.13.2",
-    "viem": "2.21.15"
   }
 }

@@ -2,7 +2,7 @@ import type {
   OnNameLookupHandler,
   OnInstallHandler,
 } from '@metamask/snaps-sdk';
-import { Box, Heading, Text, Italic } from '@metamask/snaps-sdk/jsx';
+import { Box, Heading, Italic, Text } from '@metamask/snaps-sdk/jsx';
 import { ethers, keccak256, solidityPacked } from 'ethers';
 
 export const calculateTokenId = (
@@ -44,7 +44,7 @@ export const onNameLookup: OnNameLookupHandler = async (request) => {
   const { domain } = request;
   if (domain) {
     const [name, community] = domain.split('@');
-    const tokenId = calculateTokenId(name as string, community as string);
+    const tokenId = calculateTokenId(name, community);
     const contractAddress = '0xaCeE2CB8Cf92D0d6DC7eB80bEF7dDecf75482819';
 
     const contractInterface = new ethers.Interface(ABI);
@@ -66,7 +66,7 @@ export const onNameLookup: OnNameLookupHandler = async (request) => {
       resolvedAddresses: [
         {
           resolvedAddress: resolvedAddress as string,
-          protocol: 'PoM Web3 User Name',
+          protocol: `0xNAME at ${community ?? ''}`,
           domainName: domain,
         },
       ],
@@ -81,23 +81,31 @@ export const onInstall: OnInstallHandler = async () => {
     params: {
       type: 'alert',
       content: (
-        <Box>
-          <Heading>Installation successful 🎉</Heading>
-          <Text>
-            some text on snap installation : Thank you for installing web3 user
-            names Snap. Your MetaMask is now supercharged with support web3 user
-            names provided as a public good by PoM protocol. From now on, when
-            sending on any EVM network, you can type any of web3 user name to
-            resolve an address.
-          </Text>
-          <Text>
-            When there are valid matches, you will be shown suggested addresses.{' '}
-            <Italic>
-              Please always take a moment to double-check names and suggested
-              addresses.
-            </Italic>
-          </Text>
-        </Box>
+        <Box
+          children={
+            <div>
+              <Heading children={'Installation successful 🎉'} />
+              <Text
+                children={
+                  'Thank you for installing 0xNAME Resolver Snap. Your MetaMask is now supercharged with support 0xNAME provided as a public good by Beast DAO. From now on, when sending on any EVM network, you can type any of 0xNAME to resolve an address.'
+                }
+              />
+              <Text
+                children={
+                  <div>
+                    When there are valid matches, you will be shown suggested
+                    addresses.
+                    <Italic
+                      children={
+                        'Please always take a moment to double-check names and suggested addresses.'
+                      }
+                    />
+                  </div>
+                }
+              />
+            </div>
+          }
+        />
       ),
     },
   });

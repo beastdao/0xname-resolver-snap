@@ -4,14 +4,14 @@
   "proposedName": "TypeScript Example",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "git+https://github.com/MetaMask/template-snap-monorepo.git"
   },
   "source": {
-    "shasum": "b4KvG7tJPcJzVZAXFqUQHEy9OlXOe6g2OkmDlt7yy9s=",
+    "shasum": "2YcHSfTlvMnNadYMhUOp3UzsYho7i377aWJyMIjSHcQ=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "snap",
+        "packageName": "root",
         "registry": "https://registry.npmjs.org/"
       }
     }
@@ -21,5 +21,6 @@
     "endowment:name-lookup": {},
     "endowment:ethereum-provider": {}
   },
+  "platformVersion": "6.10.0",
   "manifestVersion": "0.1"
 }
