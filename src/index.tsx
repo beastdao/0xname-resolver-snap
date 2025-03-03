@@ -2,7 +2,12 @@ import type {
   OnNameLookupHandler,
   OnInstallHandler,
 } from '@metamask/snaps-sdk';
-import { Box, Heading, Italic, Text } from '@metamask/snaps-sdk/jsx';
+import {
+  Box,
+  Heading,
+  Italic,
+  Text as SnapText,
+} from '@metamask/snaps-sdk/jsx';
 import { ethers, keccak256, solidityPacked } from 'ethers';
 
 export const calculateTokenId = (
@@ -85,12 +90,12 @@ export const onInstall: OnInstallHandler = async () => {
           children={
             <div>
               <Heading children={'Installation successful 🎉'} />
-              <Text
+              <SnapText
                 children={
                   'Thank you for installing 0xNAME Resolver Snap. Your MetaMask is now supercharged with support 0xNAME provided as a public good by Beast DAO. From now on, when sending on any EVM network, you can type any of 0xNAME to resolve an address.'
                 }
               />
-              <Text
+              <SnapText
                 children={
                   <div>
                     When there are valid matches, you will be shown suggested

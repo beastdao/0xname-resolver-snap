@@ -1,18 +1,19 @@
 {
   "version": "0.1.0",
-  "description": "An example Snap written in TypeScript.",
-  "proposedName": "TypeScript Example",
+  "description": "MetaMask snap for resolving web3 names provided by app.0xname.foo to addresses",
+  "proposedName": "0xNAME resolver",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "git+https://github.com/beastdao/0xname-resolver-snap.git"
   },
   "source": {
-    "shasum": "2YcHSfTlvMnNadYMhUOp3UzsYho7i377aWJyMIjSHcQ=",
+    "shasum": "ZBwDeAyujqIef9R9IT3t+Xc1As6uyZJZ6QbEoUj04Rc=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "root",
-        "registry": "https://registry.npmjs.org/"
+        "packageName": "0xname-resolver-snap",
+        "registry": "https://registry.npmjs.org/",
+        "iconPath": "images/beastLogo.svg"
       }
     }
   },

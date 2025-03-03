@@ -1,20 +1,28 @@
 {
-  "name": "root",
+  "name": "0xname-resolver-snap",
   "version": "0.1.0",
-  "private": true,
-  "description": "",
-  "homepage": "https://github.com/MetaMask/template-snap-monorepo#readme",
-  "bugs": {
-    "url": "https://github.com/MetaMask/template-snap-monorepo/issues"
-  },
+  "description": "MetaMask snap for resolving web3 names provided by app.0xname.foo to addresses",
+  "keywords": [
+    "npm",
+    "package",
+    "metamask",
+    "snap",
+    "web3",
+    "resolver"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "git+https://github.com/beastdao/0xname-resolver-snap.git"
   },
   "license": "(MIT-0)",
-  "author": "",
-  "workspaces": [
-    "packages/*"
+  "author": {
+    "name": "beastdao.org"
+  },
+  "main": "./dist/bundle.js",
+  "files": [
+    "dist/",
+    "images/",
+    "snap.manifest.json"
   ],
   "scripts": {
     "allow-scripts": "yarn workspace root allow-scripts",
@@ -30,14 +38,15 @@
     "start": "mm-snap watch",
     "test": "jest"
   },
+  "resolutions": {
+    "@metamask/snaps-webpack-plugin": "4.2.0"
+  },
   "dependencies": {
     "@metamask/snaps-sdk": "6.10.0",
     "ethers": "6.13.2",
     "viem": "2.21.15"
   },
   "devDependencies": {
-    "@lavamoat/allow-scripts": "^3.0.0",
-    "@lavamoat/preinstall-always-fail": "^2.0.0",
     "@metamask/eslint-config": "^12.2.0",
     "@metamask/eslint-config-jest": "^12.1.0",
     "@metamask/eslint-config-nodejs": "^12.1.0",
@@ -62,10 +71,8 @@
   "engines": {
     "node": ">=18.6.0"
   },
-  "lavamoat": {
-    "allowScripts": {
-      "@lavamoat/preinstall-always-fail": false,
-      "sharp": true
-    }
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
