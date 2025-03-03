@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/beastdao/0xname-resolver-snap.git"
   },
-  "license": "(MIT-0)",
+  "license": "MIT",
   "author": {
     "name": "beastdao.org"
   },
