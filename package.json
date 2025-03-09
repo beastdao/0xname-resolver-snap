@@ -1,6 +1,6 @@
 {
   "name": "0xname-resolver-snap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MetaMask snap for resolving web3 names provided by app.0xname.foo to addresses",
   "keywords": [
     "npm",
