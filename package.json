@@ -43,8 +43,7 @@
   },
   "dependencies": {
     "@metamask/snaps-sdk": "6.10.0",
-    "ethers": "6.13.2",
-    "viem": "2.21.15"
+    "ethers": "6.13.2"
   },
   "devDependencies": {
     "@metamask/eslint-config": "^12.2.0",
