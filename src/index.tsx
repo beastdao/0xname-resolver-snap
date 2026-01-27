@@ -62,9 +62,20 @@ export const onNameLookup: OnNameLookupHandler = async (request) => {
       method: 'eth_call',
       params: [{ to: contractAddress, data: callData }, 'latest'],
     })) as string;
-    let resolvedAddress;
-    if (response) {
-      resolvedAddress = `0x${response.slice(-40)}`;
+
+    if (!response || response === '0x') {
+      // throw new Error('[0xNAME] empty eth_call response');
+      return null;
+    }
+
+    const [resolvedAddress] = contractInterface.decodeFunctionResult(
+      'resolveAddressByTokenId',
+      response,
+    );
+
+    if (resolvedAddress === ethers.ZeroAddress) {
+      //throw new Error('[0xNAME] zero address returned');
+      return null;
     }
 
     return {
